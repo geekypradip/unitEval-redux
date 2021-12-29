@@ -15,6 +15,14 @@
 }
 .qty {
   display: flex;
+  background: rgb(146, 140, 140);
+  justify-content: space-between;
+  height: 20px;
+
+  align-items: center;
+}
+.qty > div {
+  margin: 10px;
 }
 button {
   color: white;
