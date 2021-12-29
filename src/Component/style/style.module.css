@@ -1,0 +1,30 @@
+.products_card {
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px;
+}
+.detais {
+  display: flex;
+  justify-content: space-around;
+}
+.detais > img {
+  width: 70px;
+  border-radius: 50%;
+}
+.qty {
+  display: flex;
+}
+button {
+  color: white;
+  background: rgb(36, 184, 230);
+  font-weight: bold;
+}
+.products_container {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
