@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import FetchProducts from "./api/allRequest";
-
+import { useSelector,useDispatch } from "react-redux";
+import { Decrement, Increment } from "../redux/counter/actions/action";
 import styles from './style/style.module.css'
 function Products() {
-    const [qty,setqty]=useState(0)
+    const countState=useSelector((state)=>state.counter);
+const dispatch=useDispatch();
+  
     const [products,setProducts]=useState([])
     useEffect(()=>{
         setProducts([{name:"Loading...",
@@ -19,7 +22,7 @@ function Products() {
         })
     },[])
    function handleDecrese(){
-       if(qty!==0)setqty((e)=>e-1)
+       if(countState!==0)dispatch(Decrement(1))
    }
     return (  
         <div className={styles.products_container}>
@@ -33,8 +36,8 @@ function Products() {
                         <img src={item.image} alt="" />
                         <div>RS: {item.price}</div>
                         <div className={styles.qty}>
-                                <div onClick={()=>setqty((e)=>e+1)}>+</div>
-                                <div>{qty}</div>
+                                <div onClick={()=>dispatch(Increment(1))}>+</div>
+                                <div>{countState}</div>
                                 <div onClick={()=>handleDecrese()}>-</div>
                         </div>
                     </div>
